@@ -29,39 +29,7 @@ $sectionColorNavy = "background: rgba(0,0,128,0.8);"
 $sectionColorArray = @($sectionColorRed,$sectionColorLime,$sectionColorBlue,$sectionColorYellow,$sectionColorCyan,$sectionColorMagenta,$sectionColorSilver,$sectionColorMaroon,$sectionColorOlive,$sectionColorGreen,$sectionColorPurple,$sectionColorTeal,$sectionColorNavy) # 13 colors
 $sectionColorIndex = 0
 
-$FileBiota = "D:\The Wandering Planet\Scripts\WPBiota.txt"
-$FilePlayer = "D:\The Wandering Planet\Scripts\WPPlayer.txt"
-$FileTravel = "D:\The Wandering Planet\Scripts\WPTravel.txt"
-$FileVehicles = "D:\The Wandering Planet\Scripts\WPVehicles.txt"
-$FileMutation = "D:\The Wandering Planet\Scripts\WPMutation.txt"
-
-$Selection = Read-Host "(B)iota, (P)layer, (M)utation, (T)ravel, (V)ehicles"
-
-$File = ""
-
-switch ($Selection.ToLower())
-{
-    "b" {
-		$File = $FileBiota
-		Break
-	}
-	"p" {
-		$File = $FilePlayer
-		Break
-	}
-	"m" {
-		$File = $FileMutation
-		Break
-	}
-	"t" {
-		$File = $FileTravel
-		Break
-	}
-	"v" {
-		$File = $FileVehicles
-		Break
-	}
-}
+$File = Read-Host "Enter Path to File:"
 
 foreach($line in Get-Content $File)
 {

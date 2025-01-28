@@ -1,37 +1,5 @@
 #region ChooseFile
-$FileBiota = "D:\The Wandering Planet\Scripts\WPBiota.txt"
-$FilePlayer = "D:\The Wandering Planet\Scripts\WPPlayer.txt"
-$FileTravel = "D:\The Wandering Planet\Scripts\WPTravel.txt"
-$FileVehicles = "D:\The Wandering Planet\Scripts\WPVehicles.txt"
-$FileMutation = "D:\The Wandering Planet\Scripts\WPMutation.txt"
-
-$Selection = Read-Host "(B)iota, (P)layer, (M)utation, (T)ravel, (V)ehicles"
-
-$FilePath = ""
-
-switch ($Selection.ToLower())
-{
-    "b" {
-		$FilePath = $FileBiota
-		Break
-	}
-	"p" {
-		$FilePath = $FilePlayer
-		Break
-	}
-	"m" {
-		$FilePath = $FileMutation
-		Break
-	}
-	"t" {
-		$FilePath = $FileTravel
-		Break
-	}
-	"v" {
-		$FilePath = $FileVehicles
-		Break
-	}
-}
+$FilePath = Read-Host "Enter Path to File:"
 
 # Blacklist of regex patterns
 $blacklistPatterns = @(

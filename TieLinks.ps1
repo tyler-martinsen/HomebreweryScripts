@@ -1,46 +1,8 @@
 # Define the input and output file paths
-$inputFile = ""
-$outputFile = "test.txt"
-
-$FileBiota = "D:\The Wandering Planet\Scripts\WPBiota.txt"
-$FilePlayer = "D:\The Wandering Planet\Scripts\WPPlayer.txt"
-$FileTravel = "D:\The Wandering Planet\Scripts\WPTravel.txt"
-$FileVehicles = "D:\The Wandering Planet\Scripts\WPVehicles.txt"
-$FileMutation = "D:\The Wandering Planet\Scripts\WPMutation.txt"
-
-$Selection = Read-Host "(B)iota, (P)layer, (M)utation, (T)ravel, (V)ehicles"
-
-$File = ""
-
-switch ($Selection.ToLower())
-{
-    "b" {
-		$File = $FileBiota
-		Break
-	}
-	"p" {
-		$File = $FilePlayer
-		Break
-	}
-	"m" {
-		$File = $FileMutation
-		Break
-	}
-	"t" {
-		$File = $FileTravel
-		Break
-	}
-	"v" {
-		$File = $FileVehicles
-		Break
-	}
-}
-
-$inputFile = $File
-$outputFile = $File
+$File = Read-Host "Enter Path to File:"
 
 # Read the content of the input file
-$content = Get-Content -Path $inputFile -Raw
+$content = Get-Content -Path $File -Raw
 
 # Define regex patterns
 $pageNumberPattern = "<div class='pageNumber'> *(\d+) *</div>"
@@ -85,8 +47,8 @@ $content = [regex]::Replace($content, $linkPattern, {
 })
 
 # Save the updated content to the output file
-Set-Content -Path $outputFile -Value $content
+Set-Content -Path $File -Value $content
 
-Write-Host "Processing complete. Updated file saved to $outputFile."
+Write-Host "Processing complete. Updated file saved to $File."
 
 $Selection = Read-Host "Exit?"
